@@ -104,7 +104,7 @@ create view returning_users_post as select name,comment_decription from "user" i
 
 
 
-create materialized view statistics_of_post as select p.id,title,count(like_id) as summary from post p
+create materialized view statistics_of_post as select p.id,title,count(extract(year from date)=2023) as summary from post p 
                                                group by p.id, title;
 
 
